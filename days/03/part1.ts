@@ -2,7 +2,9 @@ import { input } from "./input";
 
 const lines = input.split("\n");
 
-const largestInLines = lines.map((line) => {
+let result = 0;
+
+lines.forEach((line) => {
   let largest = 0;
   let secondLargest = 0;
 
@@ -20,9 +22,7 @@ const largestInLines = lines.map((line) => {
     }
   }
 
-  return Number(`${largest}${secondLargest}`);
+  result += Number(`${largest}${secondLargest}`);
 });
-
-const result = largestInLines.reduce((prev, curr) => prev + curr);
 
 console.log("result is:", result);
