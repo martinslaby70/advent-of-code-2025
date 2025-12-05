@@ -29,4 +29,4 @@ npx ts-node days/01/part1.ts
 
 ---
 
-Progress: 🎄 4/50 ⭐
+Progress: 🎄 10/24 ⭐
