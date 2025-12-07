@@ -1,0 +1,18 @@
+{
+  "name": "advent-of-code-2025",
+  "version": "1.0.0",
+  "author": "Martin Slabý",
+  "description": "Advent of Code 2025 solutions",
+  "scripts": {
+    "create-docx": "node tools/create-docx-description.js"
+  },
+  "dependencies": {
+    "docx": "^8.5.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "advent-of-code"
+  ],
+  "license": "ISC"
+}
+
