@@ -4,11 +4,10 @@
   "author": "Martin Slabý",
   "description": "Advent of Code 2025 solutions",
   "scripts": {
-    "create-docx": "node tools/create-docx-description.js"
+    "generate-jsdoc": "node tools/create-jsdoc-description.js",
+    "generate-jsdoc:override": "node tools/create-jsdoc-description.js --override"
   },
-  "dependencies": {
-    "docx": "^8.5.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "keywords": [
     "advent-of-code"
