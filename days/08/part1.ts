@@ -14,9 +14,7 @@
 import { input } from "./input";
 
 type Box = {
-  x: number;
-  y: number;
-  z: number;
+  index: number;
   connections: Set<Box>;
   circuit: Set<Box> | undefined;
 };
@@ -24,20 +22,17 @@ type Box = {
 let result = 0;
 const limit = 1000;
 const distances: { boxA: Box; boxB: Box; distance: number }[] = [];
-const boxes = input.split("\n").map((coords) => {
-  const [x, y, z] = coords.split(",").map(Number);
-  return { x, y, z, connections: new Set() } as Box;
-});
+const boxes = input.split("\n").map((coords) => coords.split(",").map(Number));
 
 for (let i = 0; i < boxes.length; i++) {
-  const boxA = boxes[i];
+  const [x, y, z] = boxes[i];
 
   for (let j = i + 1; j < boxes.length; j++) {
-    const boxB = boxes[j];
+    const [x1, y1, z1] = boxes[j];
     distances.push({
-      boxA,
-      boxB,
-      distance: Math.hypot(boxB.x - boxA.x, boxB.y - boxA.y, boxB.z - boxA.z),
+      boxA: { index: i, circuit: undefined, connections: new Set<Box>() },
+      boxB: { index: j, circuit: undefined, connections: new Set<Box>() },
+      distance: Math.hypot(x - x1, y - y1, z - z1),
     });
   }
 }
