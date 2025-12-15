@@ -33,20 +33,21 @@ const machines = input.split("\n").map((item) => {
   return { diagram, buttons };
 });
 
-let getCombinations = function (list: number[][], numItems: number) {
+type Input = number[][];
+const getCombinations = (list: Input, numItems: number) => {
   if (list.length < numItems) {
     return [];
   }
 
   if (numItems == 1) {
-    let result: number[][][] = [];
+    let result: Input[] = [];
     for (let i = 0; i < list.length; i++) {
       result.push([list[i]]);
     }
     return result;
   }
 
-  let result: number[][][] = [];
+  let result: Input[] = [];
   for (let i = 0; i < list.length; i++) {
     let currentElement = list.slice(i, i + 1);
     let restList = list.slice(0, i).concat(list.slice(i + 1));
@@ -58,11 +59,9 @@ let getCombinations = function (list: number[][], numItems: number) {
   return result;
 };
 
-machines.forEach((machine, ii) => {
+machines.forEach((machine) => {
   for (let i = 1; i < machine.buttons.length; i++) {
     const pressedButtons = getCombinations(machine.buttons, i);
-
-    console.log(ii, i);
 
     const isSomeMatching = pressedButtons.some((combination) => {
       const state: number[] = Array(machine.diagram.length).fill(0);
